@@ -1,0 +1,28 @@
+[package]
+name = "rust-control-plane"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Library for building Envoy xDS control planes in Rust"
+keywords = ["envoy", "xds", "control-plane", "grpc", "proxy"]
+categories = ["network-programming"]
+
+[lib]
+doctest = false
+
+[dependencies]
+envoy-proto = { workspace = true }
+prost = { workspace = true }
+prost-types = { workspace = true }
+tonic = { workspace = true }
+tokio = { workspace = true }
+tokio-stream = { workspace = true }
+futures-core = { workspace = true }
+async-trait = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["full"] }
+tonic = { workspace = true, features = ["transport"] }
