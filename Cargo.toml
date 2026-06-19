@@ -1,0 +1,24 @@
+[workspace]
+members = ["crates/rust-control-plane"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0-dev"
+edition = "2021"
+license = "Apache-2.0"
+repository = "https://github.com/phlax/rust-control-plane"
+
+[workspace.dependencies]
+# Pinned to match envoy-proto-rs.
+prost = "0.13"
+prost-types = "0.13"
+tonic = { version = "0.12", default-features = false, features = ["codegen", "prost"] }
+tokio = { version = "1", features = ["sync", "macros", "rt"] }
+tokio-stream = { version = "0.1", features = ["sync"] }
+futures-core = "0.3"
+async-trait = "0.1"
+thiserror = "1"
+tracing = "0.1"
+
+# Until envoy-proto-rs is published, point at the git repo.
+envoy-proto = { git = "https://github.com/phlax/envoy-proto-rs", rev = "998fa72addf95d8ef4d14eb455c2ea664b77e8a1" }
